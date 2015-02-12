@@ -3,7 +3,7 @@
 module.exports = {
  
         auth: {
-            user: 'charlesbaldo@gmail.com',
+            user: 'example@gmail.com',
             pass: 'xxxxxxxx',
         }
     

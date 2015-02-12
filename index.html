@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>Node.JS Email application</title>
+    <link rel="stylesheet" type="text/css" href="/theme.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        // <![CDATA[
+        $(document).ready(function () 
+        {
+            var from, to, subject, text;
+            $("#send_email").click(function () 
+            {
+                to = $("#to").val();
+                subject = $("#subject").val();
+                text = $("#content").val();
+
+                $("#message").text("Sending E-mail...Please wait");
+
+                $.get("http://localhost:3000/send", { to: to, subject: subject, text: text }, function (data) {
+
+                    if (data == "sent") {
+                        $("#message").empty().html(" Email has been sent to " + to);
+                    }
+
+                });
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <div class="fancy">
+            <h1>Node.JS Mailer</h1>
+            <input id="to" type="text" value='charlesbaldo@gmail.com' /><br><br>
+            <input id="subject" type="text" value='Subject' /><br><br>
+            <textarea id="content" cols="40" rows="5">content</textarea><br><br>
+            <button class='btn' id="send_email">Send Email</button><br><br>
+            <span id="message"></span>
+        </div>
+    </div>
+</body>
+
+</html>

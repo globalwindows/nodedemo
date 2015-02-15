@@ -1,0 +1,2 @@
+    require('./DefineGlobal.js');
+    DefineGlobal();
